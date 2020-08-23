@@ -1,5 +1,6 @@
 ﻿Feature: Employee
 
+@functional
 Scenario: Verify the user is able to navigate to the employee page
 	Given I navigate to the home page
 	When I login to the home page
