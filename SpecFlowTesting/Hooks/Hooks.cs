@@ -1,6 +1,7 @@
 ﻿using BoDi;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using SpecFlowTesting.Pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,25 +13,45 @@ using TechTalk.SpecFlow;
 namespace SpecFlowTesting.Hooks
 {
     [Binding]
-    public sealed class EmployeeHooks
+    public sealed class Hooks
     {
         private IWebDriver _driver;
-
-        // IOC Container for Specflow
-
+        LoginPage loginPage = null;
+        TurnupPage turnupPage = null;
         private readonly IObjectContainer _objectContainer;
+        String url = "http://horse-dev.azurewebsites.net/";
+        String username = "hari";
+        String password = "123123";
 
-        public EmployeeHooks(IObjectContainer objectContainer)
+
+        public Hooks(IObjectContainer objectContainer)
         {
             _objectContainer = objectContainer;
         }
 
-        [BeforeScenario]
-        public void BeforeScenario()
+        [BeforeScenario( Order = 0 )]
+        public void Init()
         {
             Console.WriteLine("..................BeforeScenario");
             _driver = GetDriver();
+            loginPage = new LoginPage(_driver);
+            turnupPage = new TurnupPage(_driver);
+        }
 
+        [BeforeScenario(Order = 1)]
+        public void NavigateToTheHomePage()
+        {
+            loginPage.NavigateToTheHomePage(url);
+        }
+        [BeforeScenario(Order = 2)]
+        public void Login()
+        {
+            loginPage.Login(username, password);
+        }
+        [BeforeScenario(Order = 3)]
+        public void NevigateToEmployeePage()
+        {
+            turnupPage.NevigateToEmployeePage();
         }
 
         [AfterScenario]

@@ -20,22 +20,22 @@ namespace SpecFlowTesting.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.3.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Employee")]
-    public partial class EmployeeFeature
+    [NUnit.Framework.DescriptionAttribute("HomePage")]
+    public partial class HomePageFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Employee.feature"
+#line 1 "HomePage.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Employee", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "HomePage", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,14 +74,14 @@ namespace SpecFlowTesting.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the user is able to create new employee record")]
-        [NUnit.Framework.CategoryAttribute("functional")]
-        public virtual void VerifyTheUserIsAbleToCreateNewEmployeeRecord()
+        [NUnit.Framework.DescriptionAttribute("Verify the user is able to navigate to the employee page")]
+        [NUnit.Framework.CategoryAttribute("ignore")]
+        public virtual void VerifyTheUserIsAbleToNavigateToTheEmployeePage()
         {
             string[] tagsOfScenario = new string[] {
-                    "functional"};
+                    "ignore"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to create new employee record", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to navigate to the employee page", null, tagsOfScenario, argumentsOfScenario);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -102,35 +102,27 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "url"});
+                table2.AddRow(new string[] {
+                            "http://horse-dev.azurewebsites.net/"});
 #line 5
- testRunner.Given("I click the create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I navigate to the home page", ((string)(null)), table2, "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Name",
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "Username",
-                            "Contact",
-                            "Password",
-                            "RetypePassword",
-                            "IsAdmin",
-                            "Vehicle",
-                            "Groups"});
-                table1.AddRow(new string[] {
-                            "A",
-                            "AA",
-                            "",
-                            "QQww1234@",
-                            "QQww1234@",
-                            "",
-                            "",
-                            ""});
-#line 6
- testRunner.When("I input the data", ((string)(null)), table1, "When ");
+                            "Password"});
+                table3.AddRow(new string[] {
+                            "hari",
+                            "123123"});
+#line 8
+ testRunner.When("I login to the home page", ((string)(null)), table3, "When ");
 #line hidden
-#line 9
- testRunner.And("I click the Save", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("I navigate to the employee page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 10
- testRunner.Then("The result should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 12
+ testRunner.Then("I am on the employee page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
