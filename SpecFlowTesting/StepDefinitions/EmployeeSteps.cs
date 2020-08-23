@@ -20,20 +20,22 @@ namespace SpecFlowTesting.StepDefinitions
         {
             loginPage = new LoginPage(driver);
             turnupPage = new TurnupPage(driver);
-            Console.WriteLine("..........EmployeeSteps, driver = " + driver.GetHashCode());
-            
         }
 
         [Given(@"I navigate to the home page")]
-        public void GivenINavigateToTheHomePage()
+        public void GivenINavigateToTheHomePage(Table table)
         {
-            loginPage.NavigateToTheHomePage("http://horse-dev.azurewebsites.net/");
+            var url = table.Rows[0][0];
+            loginPage.NavigateToTheHomePage(url);
         }
 
         [When(@"I login to the home page")]
-        public void WhenILoginToTheHomePage()
+        public void WhenILoginToTheHomePage(Table table)
         {
-            loginPage.Login("hari", "123123");
+            String username = table.Rows[0][0];
+            String password = table.Rows[0][1];
+
+            loginPage.Login(username, password);
         }
 
 

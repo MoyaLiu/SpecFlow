@@ -75,12 +75,14 @@ namespace SpecFlowTesting.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify the user is able to navigate to the employee page")]
+        [NUnit.Framework.CategoryAttribute("functional")]
         public virtual void VerifyTheUserIsAbleToNavigateToTheEmployeePage()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "functional"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to navigate to the employee page", null, tagsOfScenario, argumentsOfScenario);
-#line 3
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -100,16 +102,26 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
- testRunner.Given("I navigate to the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "url"});
+                table1.AddRow(new string[] {
+                            "http://horse-dev.azurewebsites.net/"});
 #line 5
- testRunner.When("I login to the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I navigate to the home page", ((string)(null)), table1, "Given ");
 #line hidden
-#line 6
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Username",
+                            "Password"});
+                table2.AddRow(new string[] {
+                            "hari",
+                            "123123"});
+#line 8
+ testRunner.When("I login to the home page", ((string)(null)), table2, "When ");
+#line hidden
+#line 11
  testRunner.And("I navigate to the employee page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 7
+#line 12
  testRunner.Then("I am on the employee page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
