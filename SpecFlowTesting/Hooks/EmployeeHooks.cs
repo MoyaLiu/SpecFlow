@@ -30,7 +30,6 @@ namespace SpecFlowTesting.Hooks
         {
             Console.WriteLine("..................BeforeScenario");
             _driver = GetDriver();
-            Console.WriteLine("..........BeforeScenario, _driver = " + _driver.GetHashCode());
 
         }
 
